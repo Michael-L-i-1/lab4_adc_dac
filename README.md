@@ -1,21 +1,87 @@
 # EE186 Lab 4: Bit by Bit, Hertz by Hertz
 
-Due: November 12, 2026 (handout).
+Board: NUCLEO-L4R5ZI-P (STM32L4R5ZITxP). `Src/main.c` picks which part runs: uncomment one `run_...()` call at a time.
 
-Board: NUCLEO-L4R5ZI-P, STM32L4R5ZITxP.
+## 2. ADC
 
-## Project setup
+### 2a.
 
-Import this folder with **File > Import > General > Existing Projects into Workspace** in STM32CubeIDE. Select `lab4_adc_dac`, build the Debug configuration, and use `lab4_adc_dac Debug` when ready to debug on the board.
+_What bit resolutions can the ADC be set to? What is the maximum sampling rate at each? Where is this in the datasheet?_
 
-This is the starter project scaffold. `Src/main.c` only initializes HAL and idles; ADC, DAC, timer, serial, and theremin behavior remain to be implemented and tested on hardware. ADC, DAC, TIM, and UART HAL modules are enabled. The CMSIS/HAL drivers, startup code, linker scripts, and build settings follow the previous lab's STM32L4R5 project.
+TODO
 
-## Lab parts
+### 2b.
 
-- [Part 2: ADC](part2-adc/README.md)
-- [Part 3: DAC](part3-dac/README.md)
-- [Part 4: Musical Instrument](part4-musical-instrument/README.md)
+_Why do we need a voltage divider circuit? What would happen if the photodiode were connected directly to the board?_
 
-Place part-specific source in its corresponding folder; those folders are included in both Debug and Release builds. Keep shared support code in `Src/` and headers in `Inc/`. Screenshots and videos go in each part's matching folders. Add answers and evidence as the lab is completed.
+TODO
 
-The assignment handout is kept in the course folder at `EE186/Lab 4/EE186_Lab4.pdf`. The handout's opening board specification is STM32L4R5; later STM32L5 mentions do not change this project's target.
+### 2c.
+
+_Circuit diagrams for both configurations, each showing Vin, Vout, and GND._
+
+Potentiometer as a variable voltage divider:
+
+![Potentiometer circuit](part2-adc/screenshots/potentiometer_circuit.png)
+
+Photodiode and 10 kΩ resistor voltage divider:
+
+![Photodiode circuit](part2-adc/screenshots/photodiode_circuit.png)
+
+### 2d.
+
+_Video of the ADC output changing in the terminal as the light changes, plus the code._
+
+![Terminal output changing as the light changes](part2-adc/videos/adc_light.gif)
+
+[Full demonstration video (.mov)](part2-adc/videos/adc_light_original.mov)
+
+Code: [part2-adc/adc.c](part2-adc/adc.c), [part2-adc/adc.h](part2-adc/adc.h)
+
+TODO
+
+## 3. DAC
+
+### 3a.
+
+_If B = 9, what is Vout in terms of Vref, using the DAC mode with the best resolution?_
+
+TODO
+
+### 3b.
+
+_Screenshot of the serial terminal printing DAC, ADC, and their difference as voltages while the DAC ramps up and down._
+
+![Terminal printing DAC, ADC, and their difference](part3-dac/screenshots/loopback.png)
+
+Code: `run_part3_loopback()` in [part3-dac/dac.c](part3-dac/dac.c)
+
+TODO
+
+### 3c.
+
+_How does the DAC sampling rate affect the quality of the output waveform? How do sine, square, and sawtooth waves sound different? Why do we need a capacitor in the signal path to a speaker or earphones?_
+
+TODO
+
+### 3d.
+
+_Code generating middle C (262 Hz), and a logic analyzer screenshot of the sine wave._
+
+![262 Hz sine wave on the logic analyzer](part3-dac/screenshots/sine_262hz.png)
+
+Code: `sine_start()` and `run_part3_sine()` in [part3-dac/dac.c](part3-dac/dac.c), [part3-dac/dac.h](part3-dac/dac.h)
+
+TODO
+
+## 4. Musical Instrument
+
+_Video of the working theremin, plus the source code. Extra credit for musical or harmonic sounds._
+
+![Theremin demonstration](part4-musical-instrument/videos/theremin.gif)
+
+[Full demonstration video (.mov)](part4-musical-instrument/videos/theremin_original.mov)
+
+Code: [part4-musical-instrument/theremin.c](part4-musical-instrument/theremin.c), [part4-musical-instrument/theremin.h](part4-musical-instrument/theremin.h)
+
+TODO
